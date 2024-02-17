@@ -7,30 +7,38 @@ public class Calculation {
     // метод по проверке вырожденности матрицы
     public double getDeterminant(List<List<Double>> matrix) {
         int n = matrix.size();
+        double det = 1.0;
+        List<List<Double>> mat = cloneMatrix(matrix);
 
-        switch (n) {
-            case 1:
-                return matrix.get(0).get(0);
-            case 2:
-                return matrix.get(0).get(0) * matrix.get(1).get(1) - matrix.get(0).get(1) * matrix.get(1).get(0);
-            default:
-                double det = 0;
-                for (int i = 0; i < n; i++) {
-                    List<List<Double>> minor = new ArrayList<>();
-                    for (int j = 1; j < n; j++) {
-                        List<Double> row = new ArrayList<>();
-                        for (int k = 0; k < n; k++) {
-                            if (k != i) {
-                                row.add(matrix.get(j).get(k));
-                            }
-                        }
-                        minor.add(row);
-                    }
-                    det += (Math.pow(-1, i)) * matrix.get(0).get(i) * getDeterminant(minor);
+        for (int i = 0; i < n; i++) {
+            double pivot = mat.get(i).get(i);
+            if (pivot == 0.0) {
+                return 0.0;
+            }
+
+            det *= pivot;
+
+            for (int j = i + 1; j < n; j++) {
+                double factor = mat.get(j).get(i) / pivot;
+                for (int k = i; k < n; k++) {
+                    double val = mat.get(j).get(k) - factor * mat.get(i).get(k);
+                    mat.get(j).set(k, val);
                 }
-                return det;
+            }
         }
+
+        return det;
     }
+
+    private List<List<Double>> cloneMatrix(List<List<Double>> original) {
+        List<List<Double>> clone = new ArrayList<>(original.size());
+        for (List<Double> row : original) {
+            List<Double> newRow = new ArrayList<>(row);
+            clone.add(newRow);
+        }
+        return clone;
+    }
+
 
     // метод для приведения матрицы к матрице с диагональным преобладанием
     public void toConvergence(Data data) {

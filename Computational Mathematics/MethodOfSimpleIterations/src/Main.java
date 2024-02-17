@@ -19,6 +19,7 @@ public class Main {
                 System.exit(1);
         }
 
+
         if (calculation.getDeterminant(data.getA()) == 0) {
             System.out.println("""
                     Полученная матрица является вырожденной (определитель равен нулю).
