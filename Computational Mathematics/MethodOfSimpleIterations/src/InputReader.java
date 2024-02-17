@@ -15,12 +15,8 @@ public class InputReader {
                 a11 a12 | b1
                 a21 a22 | b2
                 Ввод будет следующим:
-                a11
-                a12
-                b1
-                a21
-                a22
-                b2""");
+                a11 a12 b1
+                a21 a22 b2""");
         List<List<Double>> A = new ArrayList<>();
         List<Double> B = new ArrayList<>();
         String buffer;
