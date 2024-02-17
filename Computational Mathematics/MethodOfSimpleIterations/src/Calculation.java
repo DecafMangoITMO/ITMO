@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Calculation {
 
-    // метод по проверке вырожденности матрицы
+    // метод для поиска определителя матрицы
     public double getDeterminant(List<List<Double>> matrix) {
         int n = matrix.size();
         double det = 1.0;
