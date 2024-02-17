@@ -1,1 +1,1 @@
-<img src="AlgoScheme.png">
+<img src="AlgoScheme.pdf">
