@@ -58,12 +58,7 @@ public class Calculation {
                 }
             }
 
-            if (max < sum) {
-                System.out.println("В " + (i + 1) + " строке исходной матрицы невозможно достичь диагонального преобладания элементов.");
-                System.exit(1);
-            }
-
-            if (new_rows_positions[position] != -1) {
+            if (max < sum || new_rows_positions[position] != -1) {
                 System.out.print("""
                         Не удалось привести исходную матрицу к матрице с диагональным преобладанием.
                         Предупреждение: при продолжении решения конечный ответ может не сойтись.""");
@@ -104,15 +99,21 @@ public class Calculation {
                 for (int j = 0; j < n; j++) {
                     if (i != j) {
                         newValue -= (A.get(i).get(j) / A.get(i).get(i)) * previousApproximation[j];
+                        if (Double.isNaN(newValue) || Double.isInfinite(newValue)) {
+                            System.out.println("Данная СЛАУ не обладает сходящимся решением.");
+                            System.exit(1);
+                        }
                     }
                 }
                 newApproximation[i] = newValue;
             }
             if (getMaxDeviation(previousApproximation, newApproximation) <= data.getAccuracy()
                     || (data.getIterations() != -1 && data.getIterations() == iterationCounter)) {
+                InputReader inputReader = new InputReader();
+                int c = inputReader.readPositiveInt("Введите кол-во символов после запятой: ");
                 System.out.println("Было проведено " + iterationCounter + " итераций.");
                 for (int i = 0; i < n; i++) {
-                    System.out.println("x" + (i + 1) + "=" + newApproximation[i] + "; Отклонение составляет: " + Math.abs(newApproximation[i] - previousApproximation[i]));
+                    System.out.println("x" + (i + 1) + "=" + String.format("%." + c + "f" , newApproximation[i]) + "; Отклонение составляет: " + String.format("%." + c + "f", Math.abs(newApproximation[i] - previousApproximation[i])));
                 }
                 break;
             }

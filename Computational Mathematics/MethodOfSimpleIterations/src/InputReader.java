@@ -23,15 +23,31 @@ public class InputReader {
                 b2""");
         List<List<Double>> A = new ArrayList<>();
         List<Double> B = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            List<Double> row = new ArrayList<>();
-            for (int j = 0; j < n + 1; j++) {
-                if (j == n)
-                    B.add(readDouble());
-                else
-                    row.add(readDouble());
+        String buffer;
+        Scanner scanner = new Scanner(System.in);
+        repeat:
+        while (true) {
+            for (int i = 0; i < n; i++) {
+                List<Double> row = new ArrayList<>();
+                for (int j = 0; j < n + 1; j++) {
+                    try {
+                        buffer = scanner.next();
+                        buffer = buffer.replaceAll(",", ".");
+                        if (j == n)
+                            B.add(Double.parseDouble(buffer));
+                        else
+                            row.add(Double.parseDouble(buffer));
+                    } catch (InputMismatchException | NumberFormatException e) {
+                        System.out.println("При вводе " + (i * n + j + 2) + " элемента произошла ошибка. Требуется ввести число.");
+                        scanner = new Scanner(System.in);
+                        A.clear();
+                        B.clear();
+                        continue repeat;
+                    }
+                }
+                A.add(row);
             }
-            A.add(row);
+            break;
         }
 
         return new Data(A, B, accuracy);
@@ -116,22 +132,6 @@ public class InputReader {
                 System.out.println("Требуется ввести положительное число.");
             } catch (InputMismatchException | NumberFormatException e) {
                 System.out.println("Требуется ввести целое число.");
-                continue;
-            }
-        }
-    }
-
-    public double readDouble() {
-        while (true) {
-            try {
-                Scanner scanner = new Scanner(System.in);
-                String buffer = scanner.next();
-                if (buffer.equals("exit"))
-                    System.exit(0);
-                return Double.parseDouble(buffer);
-            } catch (InputMismatchException | NumberFormatException e) {
-                System.out.println("Требуется ввести число.");
-                continue;
             }
         }
     }
@@ -144,13 +144,13 @@ public class InputReader {
                 String buffer = scanner.next();
                 if (buffer.equals("exit"))
                     System.exit(0);
+                buffer = buffer.replaceAll(",", ".");
                 double value = Double.parseDouble(buffer);
                 if (value > 0)
                     return value;
                 System.out.println("Требуется ввести положительное число.");
             } catch (InputMismatchException | NumberFormatException e) {
                 System.out.println("Требуется ввести число.");
-                continue;
             }
         }
     }

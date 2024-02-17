@@ -21,14 +21,12 @@ public class Main {
 
         if (calculation.getDeterminant(data.getA()) == 0) {
             System.out.println("""
-                    Полученная матрица является вырожденной (определитель не нуль).
+                    Полученная матрица является вырожденной (определитель равен нулю).
                     Данная программа работает только со совместными и определенными СЛАУ.""");
             System.exit(1);
         }
 
         calculation.toConvergence(data);
-
-        System.out.println(data.getIterations());
 
         calculation.iterate(data);
     }
