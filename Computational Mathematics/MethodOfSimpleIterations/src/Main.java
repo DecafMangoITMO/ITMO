@@ -19,8 +19,7 @@ public class Main {
                 System.exit(1);
         }
 
-
-        if (calculation.getDeterminant(data.getA()) == 0) {
+        if (calculation.getDeterminant(data.getA()) == 0d) {
             System.out.println("""
                     Полученная матрица является вырожденной (определитель равен нулю).
                     Данная программа работает только со совместными и определенными СЛАУ.""");
@@ -29,7 +28,9 @@ public class Main {
 
         calculation.toConvergence(data);
 
-        calculation.iterate(data);
-    }
 
+        calculation.iterate(data);
+
+    }
 }
+
