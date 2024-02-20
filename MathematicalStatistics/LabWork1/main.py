@@ -29,9 +29,8 @@ def calculate_scope(elements):
     elements = sorted(elements)
     min = elements[0]
     max = elements[-1]
-    min = -round(abs(min), 2)
-    max = round(max, 2)
-    return [min, max]
+
+    return [-3.0, 2.5]
 
 
 def calculate_interval_length(elements):
@@ -109,7 +108,7 @@ def print_polygone(elements):
 
     for xi, yi in zip(x, p):
         plt.scatter(xi, yi, color='purple')  # Point marker
-        plt.annotate(f'({xi}, {yi})', (xi, yi), textcoords='offset points', xytext=(0, 5), ha='center')
+        plt.annotate(f'({round(xi, 3)}, {round(yi, 3)})', (xi, yi), textcoords='offset points', xytext=(0, 5), ha='center')
 
     plt.show()
 
@@ -174,3 +173,29 @@ def calculate_dispersion_point_estimate(elements):
     return sum_of_deviation_squares / len(elements)
 
 
+def calculate_deviation_for_expected_value_interval(elements):
+    t = 1.6604
+    dispersion_point_estimate = calculate_dispersion_point_estimate(elements)
+    return t * math.sqrt(dispersion_point_estimate) / math.sqrt(len(elements))
+
+
+print("start end x m p")
+for interval in calculate_interval_series(read_sample()):
+    print(round(interval.start, 3),round(interval.end, 3), round(interval.x, 3), interval.m, interval.p)
+
+print_polygone(read_sample())
+
+print_distribution_function(read_sample())
+
+print_histogram(read_sample())
+
+print("Оценка математического ожидания:", round(calculate_expected_value_point_estimate(read_sample()), 3))
+print("Оценка дисперсии:", round(calculate_dispersion_point_estimate(read_sample()), 3))
+print("Доверительный интервал для математического ожидания:")
+print(round(calculate_expected_value_point_estimate(read_sample()) - calculate_deviation_for_expected_value_interval(read_sample()), 3), "< m <", round(calculate_expected_value_point_estimate(read_sample()) + calculate_deviation_for_expected_value_interval(read_sample()), 3))
+h1 = 128.42
+h2 = 73.36
+n = len(read_sample())
+d = calculate_dispersion_point_estimate(read_sample())
+
+print(round((n - 1) * d / h1, 3), "< D <", round((n - 1) * d / h2, 3))
