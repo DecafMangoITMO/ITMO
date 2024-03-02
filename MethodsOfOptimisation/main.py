@@ -80,7 +80,7 @@ def method_of_newtons(a, b, accuracy, x0):
         x = x - d(x) / d2(x)
 
 
-print(method_of_dividing_a_segment_in_half(a, b, accuracy))
-print(method_of_golden_ratio(a, b, accuracy))
-print(method_of_chords(a, b, accuracy))
-print(method_of_newtons(a, b, accuracy, 3.2))
+print("Результат работы метода половинного деления:", method_of_dividing_a_segment_in_half(a, b, accuracy))
+print("Результат работы метода золотого сечения:", method_of_golden_ratio(a, b, accuracy))
+print("Результат работы метода хорд:", method_of_chords(a, b, accuracy))
+print("Результат работы метода Ньютона:", method_of_newtons(a, b, accuracy, 3.2))
