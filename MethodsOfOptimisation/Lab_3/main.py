@@ -39,20 +39,27 @@ def method_of_golden_ratio(a, b, accuracy):
     left = a
     right = b
 
-    while True:
-        x1 = right - (right - left) / 1.618
-        x2 = left + (right - left) / 1.618
-        y1 = f(x1)
-        y2 = f(x2)
+    x1 = right - (right - left) / 1.618
+    x2 = left + (right - left) / 1.618
+    y1 = f(x1)
+    y2 = f(x2)
 
+    while True:
         if y1 >= y2:
             left = x1
+            x1 = x2
+            y1 = y2
+            x2 = left + (right - left) / 1.618
+            y2 = f(x2)
         else:
             right = x2
+            x2 = x1
+            y2 = y1
+            x1 = right - (right - left) / 1.618
+            y1 = f(x1)
 
-        if abs(right - left) < 2 * accuracy:
+        if abs(right - left) < accuracy:
             return (left + right) / 2
-
 
 # Метод хорд
 def method_of_chords(a, b, accuracy):
@@ -71,7 +78,6 @@ def method_of_chords(a, b, accuracy):
         else:
             left = x
 
-
 # Метод Ньютона
 def method_of_newtons(a, b, accuracy, x0):
     x = x0
@@ -82,7 +88,7 @@ def method_of_newtons(a, b, accuracy, x0):
         x = x - d(x) / d2(x)
 
 
-print("Результат работы метода половинного деления:", method_of_dividing_a_segment_in_half(a, b, accuracy))
-print("Результат работы метода золотого сечения:", method_of_golden_ratio(a, b, accuracy))
-print("Результат работы метода хорд:", method_of_chords(a, b, accuracy))
-print("Результат работы метода Ньютона:", method_of_newtons(a, b, accuracy, 3.2))
+print(method_of_dividing_a_segment_in_half(a, b, accuracy))
+print(method_of_golden_ratio(a, b, accuracy))
+print(method_of_chords(a, b, accuracy))
+print(method_of_newtons(a, b, accuracy, 3.2))
