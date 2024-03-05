@@ -54,6 +54,7 @@ def method_of_golden_ratio(a, b, accuracy):
             return (left + right) / 2
 
 
+# Метод хорд
 def method_of_chords(a, b, accuracy):
     left = a
     right = b
@@ -71,6 +72,7 @@ def method_of_chords(a, b, accuracy):
             left = x
 
 
+# Метод Ньютона
 def method_of_newtons(a, b, accuracy, x0):
     x = x0
 
