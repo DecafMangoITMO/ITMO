@@ -30,6 +30,12 @@ public class NewtonsMethod implements Method {
                     new double[]{function2.computeDerivativeX(x0, y0), function2.computeDerivativeY(x0, y0), -function2.compute(x0, y0)}
             );
 
+            if (Double.isInfinite(d[0]) || Double.isInfinite(d[1]) || Double.isNaN(d[0]) || Double.isNaN(d[1])) {
+                x0 += 0.1d;
+                y0 += 0.1d;
+                continue;
+            }
+
             x0 += d[0];
             y0 += d[1];
             row.add(String.format("%." + digitsAfterComma + "f", x0));

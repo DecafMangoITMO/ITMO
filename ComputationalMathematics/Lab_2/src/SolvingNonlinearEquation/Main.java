@@ -25,7 +25,6 @@ public class Main {
     public static void main(String[] args) {
         InputReader inputReader = new InputReader();
 
-        System.out.println("Для выхода из программы пропишите exit.");
         System.out.println("Список доступных фукнций:");
 
         for (int i = 0; i < functions.length; i++)
