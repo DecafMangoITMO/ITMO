@@ -1,15 +1,26 @@
 package functions;
 
-// y = x / sqrt(1 + x^2)
-public class Function5 implements Function {
+import java.util.List;
+
+// y = 1 / x
+public class Function5 extends Function {
+
+    public Function5() {
+        super(List.of(new double[] {Double.NEGATIVE_INFINITY, 0d}, new double[] {0d, Double.POSITIVE_INFINITY}), List.of(0d));
+    }
 
     @Override
     public double compute(double x) {
-        return x / Math.sqrt(1 + Math.pow(x, 2));
+        return 1 / x;
+    }
+
+    @Override
+    public double computeAntiderivative(double x) {
+        return Math.log(Math.abs(x));
     }
 
     @Override
     public String toString() {
-        return "x / sqrt(1 + x^2)";
+        return "y = 1 / x";
     }
 }

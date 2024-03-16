@@ -1,7 +1,16 @@
 package functions;
 
-public interface Function {
+import lombok.Data;
+import java.util.List;
 
-    double compute(double x);
+@Data
+public abstract class Function {
+
+    private final List<double[]> domain;
+    private final List<Double> pointsOfInfiniteDiscontinuity;
+
+    public abstract double compute(double x);
+
+    public abstract double computeAntiderivative(double x);
 
 }
