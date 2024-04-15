@@ -1,0 +1,13 @@
+/Users/decafmango/Desktop/lab_4/src/main/java/com/decafmango/Main.java
+/Users/decafmango/Desktop/lab_4/src/main/java/com/decafmango/approximation/Approximation.java
+/Users/decafmango/Desktop/lab_4/src/main/java/com/decafmango/approximation/ExponentialApproximation.java
+/Users/decafmango/Desktop/lab_4/src/main/java/com/decafmango/approximation/LinearApproximation.java
+/Users/decafmango/Desktop/lab_4/src/main/java/com/decafmango/approximation/LogarithmicApproximation.java
+/Users/decafmango/Desktop/lab_4/src/main/java/com/decafmango/approximation/PowerApproximation.java
+/Users/decafmango/Desktop/lab_4/src/main/java/com/decafmango/approximation/QuadraticApproximation.java
+/Users/decafmango/Desktop/lab_4/src/main/java/com/decafmango/util/ApproximationPrinter.java
+/Users/decafmango/Desktop/lab_4/src/main/java/com/decafmango/util/InputReader.java
+/Users/decafmango/Desktop/lab_4/src/main/java/com/decafmango/util/LinearSystemSolver.java
+/Users/decafmango/Desktop/lab_4/src/main/java/com/decafmango/util/OutputWriter.java
+/Users/decafmango/Desktop/lab_4/src/main/java/com/decafmango/util/TableGenerator.java
+/Users/decafmango/Desktop/lab_4/src/main/java/com/decafmango/util/Writer.java
