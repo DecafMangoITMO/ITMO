@@ -72,38 +72,70 @@ def create_next_population(parents):
 
         print("Скрешиваем:", "".join(map(str, parent_1_sequence)), "".join(map(str, parent_2_sequence)))
 
-        break_point = randint(1, cities_count - 1)
+        break_point_1 = randint(1, cities_count - 1)
+        break_point_2 = randint(1, cities_count - 1)
+
+        while break_point_2 == break_point_1:
+            break_point_2 = randint(1, cities_count - 1)
+
+        if break_point_2 < break_point_1:
+            break_point_1, break_point_2 = break_point_2, break_point_1
+
         taken_cities = []
 
-        child_1 = []
-        for i in range(break_point):
-            child_1.append(parent_1_sequence[i])
-            taken_cities.append(parent_1_sequence[i])
-        for i in range(break_point, cities_count):
-            if parent_2_sequence[i] not in taken_cities:
-                child_1.append(parent_2_sequence[i])
-                taken_cities.append(parent_2_sequence[i])
-        if len(child_1) != cities_count:
-            for i in range(break_point, cities_count):
-                if parent_1_sequence[i] not in taken_cities:
-                    child_1.append(parent_1_sequence[i])
-                    taken_cities.append(parent_1_sequence[i])
+        child_1 = [0 for i in range(cities_count)]
+        for i in range(break_point_1, break_point_2):
+            child_1[i] = parent_2_sequence[i]
+            taken_cities.append(parent_2_sequence[i])
+        i = 0
+        j = break_point_1
+        while i < break_point_1:
+            if parent_1_sequence[j] not in taken_cities:
+                child_1[i] = parent_1_sequence[j]
+                taken_cities.append(parent_1_sequence[j])
+                i += 1
+            if j == cities_count - 1:
+                j = 0
+            else:
+                j += 1
+        i = break_point_2
+        while i < cities_count:
+            if parent_1_sequence[j] not in taken_cities:
+                child_1[i] = parent_1_sequence[j]
+                taken_cities.append(parent_1_sequence[j])
+                i += 1
+            if j == cities_count - 1:
+                j = 0
+            else:
+                j += 1
 
         taken_cities.clear()
 
-        child_2 = []
-        for i in range(break_point):
-            child_2.append(parent_2_sequence[i])
-            taken_cities.append(parent_2_sequence[i])
-        for i in range(break_point, cities_count):
-            if parent_1_sequence[i] not in taken_cities:
-                child_2.append(parent_1_sequence[i])
-                taken_cities.append(parent_1_sequence[i])
-        if len(child_2) != cities_count:
-            for i in range(break_point, cities_count):
-                if parent_2_sequence[i] not in taken_cities:
-                    child_2.append(parent_2_sequence[i])
-                    taken_cities.append(parent_2_sequence[i])
+        child_2 = [0 for i in range(cities_count)]
+        for i in range(break_point_1, break_point_2):
+            child_2[i] = parent_1_sequence[i]
+            taken_cities.append(parent_1_sequence[i])
+        i = 0
+        j = break_point_1
+        while i < break_point_1:
+            if parent_2_sequence[j] not in taken_cities:
+                child_2[i] = parent_2_sequence[j]
+                taken_cities.append(parent_2_sequence[j])
+                i += 1
+            if j == cities_count - 1:
+                j = 0
+            else:
+                j += 1
+        i = break_point_2
+        while i < cities_count:
+            if parent_2_sequence[j] not in taken_cities:
+                child_2[i] = parent_2_sequence[j]
+                taken_cities.append(parent_2_sequence[j])
+                i += 1
+            if j == cities_count - 1:
+                j = 0
+            else:
+                j += 1
 
         print("Получены потомки:", "".join(map(str, child_1)), "".join(map(str, child_2)))
         print("")
@@ -124,9 +156,8 @@ def mutation(way):
 
         mutated_way_sequence = way.sequence
 
-        buffer = mutated_way_sequence[index_1]
-        mutated_way_sequence[index_1] = mutated_way_sequence[index_2]
-        mutated_way_sequence[index_2] = buffer
+        mutated_way_sequence[index_1], mutated_way_sequence[index_2] = mutated_way_sequence[index_2], \
+        mutated_way_sequence[index_1]
 
         print("Произошла мутация:", "".join(map(str, way.sequence)), "-->", "".join(map(str, mutated_way_sequence)))
 
@@ -175,4 +206,4 @@ while current_population_number <= population_size:
 print()
 
 optimal_way = population[0]
-print("Оптимальный путь:", "".join(map(str, optimal_way.sequence)), "Расстояние:",optimal_way.f())
+print("Оптимальный путь:", "".join(map(str, optimal_way.sequence)), "Расстояние:", optimal_way.f())
