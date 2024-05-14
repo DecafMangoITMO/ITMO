@@ -3,15 +3,15 @@ from bisect import bisect
 from itertools import permutations
 
 graph = [
-    [0, 1, 1, 5, 3],
-    [1, 0, 3, 1, 5],
-    [1, 3, 0, 11, 1],
-    [5, 1, 11, 0, 1],
-    [3, 5, 1, 1, 0]
+    [0, 2, 5, 9, 6],
+    [2, 0, 7, 9, 10],
+    [5, 7, 0, 6, 10],
+    [9, 9, 6, 0, 3],
+    [6, 10, 10, 3, 0]
 ]
 cities_count = len(graph)
 population_size = 4
-mutation_probability = 0.5
+mutation_probability = 0.01
 
 
 class Way:
@@ -28,16 +28,9 @@ class Way:
 
 def choose_parents(ways):
     parents = []
-    for i in range(int(population_size / 2)):
-        non_chosen_ways = []
-        for way in ways:
-            is_non_taken = True
-            for parent in parents:
-                if way.sequence == parent.sequence:
-                    is_non_taken = False
-            if is_non_taken:
-                non_chosen_ways.append(way)
 
+    non_chosen_ways = [way for way in ways]
+    for i in range(population_size):
         sum_of_distances = 0
         for way in non_chosen_ways:
             sum_of_distances += way.f()
@@ -54,9 +47,18 @@ def choose_parents(ways):
         r = random()
 
         chosen_way_index = bisect(cumulative_probabilities, r)
-
         parents.append(non_chosen_ways[chosen_way_index])
+        non_chosen_ways.remove(non_chosen_ways[chosen_way_index])
     return parents
+
+
+def get_sequence_with_break_points(sequence, break_point_1, break_point_2):
+    res = ""
+    for i in range(cities_count):
+        if i in (break_point_1, break_point_2):
+            res += "|"
+        res += str(sequence[i])
+    return res
 
 
 def create_next_population(parents):
@@ -70,10 +72,10 @@ def create_next_population(parents):
         parent_1_sequence = pair[0].sequence
         parent_2_sequence = pair[1].sequence
 
-        print("Скрешиваем:", "".join(map(str, parent_1_sequence)), "".join(map(str, parent_2_sequence)))
-
         break_point_1 = randint(1, cities_count - 1)
         break_point_2 = randint(1, cities_count - 1)
+
+        print(f"Скрешиваем: {get_sequence_with_break_points(parent_1_sequence, break_point_1, break_point_2)} {get_sequence_with_break_points(parent_2_sequence, break_point_1, break_point_2)}")
 
         while break_point_2 == break_point_1:
             break_point_2 = randint(1, cities_count - 1)
@@ -137,7 +139,7 @@ def create_next_population(parents):
             else:
                 j += 1
 
-        print("Получены потомки:", "".join(map(str, child_1)), "".join(map(str, child_2)))
+        print(f"Получены потомки:{get_sequence_with_break_points(child_1, break_point_1, break_point_2)} {get_sequence_with_break_points(child_2, break_point_1, break_point_2)}")
         print("")
 
         next_population.append(Way(child_1))
@@ -166,7 +168,7 @@ def mutation(way):
     return None
 
 
-population_count = 5
+population_count = 3
 cities = range(cities_count)
 
 population = []
@@ -178,10 +180,18 @@ for sequence in permutations(cities):
 
 current_population_number = 1
 
-while current_population_number <= population_size:
+while True:
     print(f"Популяция №{current_population_number}:")
+    print("Путь | Значение целевой функции | Вероятность участия в процессе размножения")
+    sum_of_distances = 0
     for way in population:
-        print("".join(map(str, way.sequence)), way.f())
+        sum_of_distances += way.f()
+    for way in population:
+        print(f"{"".join(map(str, way.sequence))} | {way.f()} | {way.f()}/{sum_of_distances}")
+
+    if current_population_number == population_count:
+        break
+
     print("")
 
     parents = choose_parents(population)
@@ -198,12 +208,17 @@ while current_population_number <= population_size:
             next_population[i] = child
 
     population += next_population
+    print("Полученная расширенная популяция:")
+    print("Путь | Значение целевой функции")
+    for way in population:
+        print(f"{"".join(map(str, way.sequence))} | {way.f()}")
     population.sort(key=lambda x: x.f())
-    population = population[:population_count]
+    population = population[:population_size]
 
     current_population_number += 1
+    print("")
 
-print()
+print("")
 
 optimal_way = population[0]
 print("Оптимальный путь:", "".join(map(str, optimal_way.sequence)), "Расстояние:", optimal_way.f())
