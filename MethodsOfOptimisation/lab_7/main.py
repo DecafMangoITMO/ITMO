@@ -3,11 +3,11 @@ from bisect import bisect
 from itertools import permutations
 
 graph = [
-    [0, 2, 5, 9, 6],
-    [2, 0, 7, 9, 10],
-    [5, 7, 0, 6, 10],
-    [9, 9, 6, 0, 3],
-    [6, 10, 10, 3, 0]
+    [0, 1, 1, 5, 3],
+    [1, 0, 3, 1, 5],
+    [1, 3, 0, 11, 1],
+    [5, 1, 11, 0, 1],
+    [3, 5, 1, 1, 0]
 ]
 cities_count = len(graph)
 population_size = 4
