@@ -1,0 +1,650 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/decafmango/ontologies/2024/8/untitled-ontology-6"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/decafmango/ontologies/2024/8/untitled-ontology-6">
+    <Prefix name="" IRI="http://www.semanticweb.org/decafmango/ontologies/2024/8/untitled-ontology-6/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="untitled-ontology-6" IRI="http://www.semanticweb.org/decafmango/ontologies/2024/8/untitled-ontology-6#"/>
+    <Declaration>
+        <Class IRI="#Game"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Genre"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Platform"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Type"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Have_Genre"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Have_Platform"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Have_Type"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Have_Age"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Action"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Adventure"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Beat_Saber"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Casual"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Civilization_VI"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Console"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Cooperative"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Doom"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Education"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Factorio"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Horror"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Minecraft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mobile"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Multiplayer"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Musical"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Outlast"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PC"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Portal_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Puzzle"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Role-Playing"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Shooter"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Simulator"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Singleplayer"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Stardew_Valley"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Strategy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#The_Witcher_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#VR"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Half-Life:_Alyx"/>
+    </Declaration>
+    <DisjointClasses>
+        <Class IRI="#Game"/>
+        <Class IRI="#Genre"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Game"/>
+        <Class IRI="#Platform"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Game"/>
+        <Class IRI="#Type"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Genre"/>
+        <Class IRI="#Platform"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Genre"/>
+        <Class IRI="#Type"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Platform"/>
+        <Class IRI="#Type"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#Action"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#Adventure"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Game"/>
+        <NamedIndividual IRI="#Beat_Saber"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#Casual"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Game"/>
+        <NamedIndividual IRI="#Civilization_VI"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Platform"/>
+        <NamedIndividual IRI="#Console"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Type"/>
+        <NamedIndividual IRI="#Cooperative"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Game"/>
+        <NamedIndividual IRI="#Doom"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#Education"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Game"/>
+        <NamedIndividual IRI="#Factorio"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#Horror"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Game"/>
+        <NamedIndividual IRI="#Minecraft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Platform"/>
+        <NamedIndividual IRI="#Mobile"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Type"/>
+        <NamedIndividual IRI="#Multiplayer"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#Musical"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Game"/>
+        <NamedIndividual IRI="#Outlast"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Platform"/>
+        <NamedIndividual IRI="#PC"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Game"/>
+        <NamedIndividual IRI="#Portal_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#Puzzle"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#Role-Playing"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#Shooter"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#Simulator"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Type"/>
+        <NamedIndividual IRI="#Singleplayer"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Game"/>
+        <NamedIndividual IRI="#Stardew_Valley"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#Strategy"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Game"/>
+        <NamedIndividual IRI="#The_Witcher_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Platform"/>
+        <NamedIndividual IRI="#VR"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Game"/>
+        <NamedIndividual IRI="#Half-Life:_Alyx"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Beat_Saber"/>
+        <NamedIndividual IRI="#Action"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Beat_Saber"/>
+        <NamedIndividual IRI="#Education"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Beat_Saber"/>
+        <NamedIndividual IRI="#Musical"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#Beat_Saber"/>
+        <NamedIndividual IRI="#VR"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Beat_Saber"/>
+        <NamedIndividual IRI="#Singleplayer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Civilization_VI"/>
+        <NamedIndividual IRI="#Education"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Civilization_VI"/>
+        <NamedIndividual IRI="#Simulator"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Civilization_VI"/>
+        <NamedIndividual IRI="#Strategy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#Civilization_VI"/>
+        <NamedIndividual IRI="#PC"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Civilization_VI"/>
+        <NamedIndividual IRI="#Multiplayer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Civilization_VI"/>
+        <NamedIndividual IRI="#Singleplayer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Doom"/>
+        <NamedIndividual IRI="#Action"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Doom"/>
+        <NamedIndividual IRI="#Horror"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Doom"/>
+        <NamedIndividual IRI="#Shooter"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#Doom"/>
+        <NamedIndividual IRI="#Console"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#Doom"/>
+        <NamedIndividual IRI="#PC"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Doom"/>
+        <NamedIndividual IRI="#Singleplayer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Factorio"/>
+        <NamedIndividual IRI="#Adventure"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Factorio"/>
+        <NamedIndividual IRI="#Puzzle"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Factorio"/>
+        <NamedIndividual IRI="#Simulator"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#Factorio"/>
+        <NamedIndividual IRI="#PC"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Factorio"/>
+        <NamedIndividual IRI="#Cooperative"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Factorio"/>
+        <NamedIndividual IRI="#Singleplayer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Minecraft"/>
+        <NamedIndividual IRI="#Adventure"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Minecraft"/>
+        <NamedIndividual IRI="#Simulator"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Minecraft"/>
+        <NamedIndividual IRI="#Strategy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#Minecraft"/>
+        <NamedIndividual IRI="#Console"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#Minecraft"/>
+        <NamedIndividual IRI="#Mobile"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#Minecraft"/>
+        <NamedIndividual IRI="#PC"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Minecraft"/>
+        <NamedIndividual IRI="#Multiplayer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Minecraft"/>
+        <NamedIndividual IRI="#Singleplayer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Outlast"/>
+        <NamedIndividual IRI="#Action"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Outlast"/>
+        <NamedIndividual IRI="#Adventure"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Outlast"/>
+        <NamedIndividual IRI="#Horror"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#Outlast"/>
+        <NamedIndividual IRI="#Console"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#Outlast"/>
+        <NamedIndividual IRI="#PC"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Outlast"/>
+        <NamedIndividual IRI="#Singleplayer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Portal_2"/>
+        <NamedIndividual IRI="#Education"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Portal_2"/>
+        <NamedIndividual IRI="#Puzzle"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Portal_2"/>
+        <NamedIndividual IRI="#Simulator"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#Portal_2"/>
+        <NamedIndividual IRI="#PC"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Portal_2"/>
+        <NamedIndividual IRI="#Cooperative"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Portal_2"/>
+        <NamedIndividual IRI="#Singleplayer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Stardew_Valley"/>
+        <NamedIndividual IRI="#Adventure"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Stardew_Valley"/>
+        <NamedIndividual IRI="#Casual"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Stardew_Valley"/>
+        <NamedIndividual IRI="#Simulator"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#Stardew_Valley"/>
+        <NamedIndividual IRI="#PC"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Stardew_Valley"/>
+        <NamedIndividual IRI="#Cooperative"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Stardew_Valley"/>
+        <NamedIndividual IRI="#Singleplayer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#The_Witcher_3"/>
+        <NamedIndividual IRI="#Adventure"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#The_Witcher_3"/>
+        <NamedIndividual IRI="#Role-Playing"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#The_Witcher_3"/>
+        <NamedIndividual IRI="#Strategy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#The_Witcher_3"/>
+        <NamedIndividual IRI="#Console"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#The_Witcher_3"/>
+        <NamedIndividual IRI="#PC"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#The_Witcher_3"/>
+        <NamedIndividual IRI="#Singleplayer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Half-Life:_Alyx"/>
+        <NamedIndividual IRI="#Action"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Half-Life:_Alyx"/>
+        <NamedIndividual IRI="#Adventure"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <NamedIndividual IRI="#Half-Life:_Alyx"/>
+        <NamedIndividual IRI="#Role-Playing"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <NamedIndividual IRI="#Half-Life:_Alyx"/>
+        <NamedIndividual IRI="#VR"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#Have_Type"/>
+        <NamedIndividual IRI="#Half-Life:_Alyx"/>
+        <NamedIndividual IRI="#Singleplayer"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Have_Age"/>
+        <NamedIndividual IRI="#Beat_Saber"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2018</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Have_Age"/>
+        <NamedIndividual IRI="#Civilization_VI"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2016</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Have_Age"/>
+        <NamedIndividual IRI="#Doom"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2016</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Have_Age"/>
+        <NamedIndividual IRI="#Factorio"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2020</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Have_Age"/>
+        <NamedIndividual IRI="#Minecraft"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2011</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Have_Age"/>
+        <NamedIndividual IRI="#Outlast"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2013</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Have_Age"/>
+        <NamedIndividual IRI="#Portal_2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2013</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Have_Age"/>
+        <NamedIndividual IRI="#Stardew_Valley"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2016</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Have_Age"/>
+        <NamedIndividual IRI="#The_Witcher_3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2015</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Have_Age"/>
+        <NamedIndividual IRI="#Half-Life:_Alyx"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#positiveInteger">2020</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <Class IRI="#Game"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <Class IRI="#Game"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Have_Type"/>
+        <Class IRI="#Game"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Have_Genre"/>
+        <Class IRI="#Genre"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Have_Platform"/>
+        <Class IRI="#Platform"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Have_Type"/>
+        <Class IRI="#Type"/>
+    </ObjectPropertyRange>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#Have_Age"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Have_Age"/>
+        <Class IRI="#Game"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#Have_Age"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,12 @@
+game('Factorio').
+
+game(Game).
+
+game_genre('Factorio', Genre).
+
+Найти первую попавшуюся игру с годом выпуска 2016 и на ПК
+game(Game), game_age(Game, 2016), game_platform(Game, pc), !.
+
+Найти игру на платформе ПК или консоли и не жанра хоррор
+findall(Game, ((game_platform(Game, pc); game_platform(Game, console)), \+(game_genre(Game, horror))), Result),
+    sort(Result, Set).
