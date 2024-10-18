@@ -20,7 +20,7 @@ const AdvancedModal = ({open, setOpen}) => {
         event.preventDefault()
 
         axios.delete(
-            `http://localhost:8080/human-being/impact-speed?impactSpeed=${impactSpeed}`,
+            `/human-being/impact-speed?impactSpeed=${impactSpeed}`,
             {}
         ).then(response => {
                 setResultMessage('Human beings were deleted')
@@ -39,7 +39,7 @@ const AdvancedModal = ({open, setOpen}) => {
         event.preventDefault()
 
         axios.get(
-            'http://localhost:8080/human-being/random/max-minutes-of-waiting',
+            '/human-being/random/max-minutes-of-waiting',
             {}
         ).then(response => {
                 const humanBeing = response.data
@@ -99,7 +99,7 @@ const AdvancedModal = ({open, setOpen}) => {
         event.preventDefault()
 
         axios.get(
-            `http://localhost:8080/human-being/less-minutes-of-waiting/${minutesOfWaiting}`,
+            `/human-being/less-minutes-of-waiting/${minutesOfWaiting}`,
             {}
         ).then(response => {
                 const humanBeings = response.data
@@ -159,7 +159,7 @@ const AdvancedModal = ({open, setOpen}) => {
         event.preventDefault()
 
         axios.delete(
-            `http://localhost:8080/human-being/has-toothpick`,
+            `/human-being/has-toothpick`,
             {}
         ).then(response => {
                 setResultMessage('Human beings without toothpicks deleted')
@@ -178,7 +178,7 @@ const AdvancedModal = ({open, setOpen}) => {
         event.preventDefault()
 
         axios.patch(
-            "http://localhost:8080/human-being/lada-kalina",
+            "/human-being/lada-kalina",
             {},
             {}
         ).then(response => {

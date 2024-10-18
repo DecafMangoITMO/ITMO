@@ -16,6 +16,8 @@ const Home = () => {
     const navigate = useNavigate();
 
     const [open, setOpen] = useState('');
+    const [submitAdminJoinRequestButtonIsActive, setSubmitAdminJoinRequestButtonIsActive] = useState(false);
+    const [adminJoinRequestIsSent, setAdminJoinRequestIsSent] = useState(false);
 
     const [humanBeings, setHumanBeings] = useState([]);
     const [humanBeingsPage, setHumanBeingsPage] = useState(0);
@@ -35,7 +37,7 @@ const Home = () => {
 
     const loadHumanBeings = (page) => {
         axios.get(
-            `http://localhost:8080/human-being`,
+            `/human-being`,
             {
                 params: {
                     from: page * 10,
@@ -57,7 +59,7 @@ const Home = () => {
 
     const loadCars = (page) => {
         axios.get(
-            `http://localhost:8080/car`,
+            `/car`,
             {
                 params: {
                     from: page * 10,
@@ -79,7 +81,7 @@ const Home = () => {
 
     const loadCoordinates = (page) => {
         axios.get(
-            `http://localhost:8080/coordinates`,
+            `/coordinates`,
             {
                 params: {
                     from: page * 10,
@@ -101,7 +103,7 @@ const Home = () => {
 
     const loadAdminJoinRequests = (page) => {
         axios.get(
-            `http://localhost:8080/admin`,
+            `/admin`,
             {
                 params: {
                     from: page * 10,
@@ -123,17 +125,15 @@ const Home = () => {
 
     const sendAdminJoinRequest = () => {
         axios.post(
-            "http://localhost:8080/admin",
+            "/admin",
             {},
             {},
         ).then((response) => {
-                console.log(response.status);
             }
         ).catch(error => {
             if (error.response) {
-                if (error.response.status === 401) {
-                    setUser(null);
-                    navigate("/");
+                if (error.response.status === 400) {
+                    setAdminJoinRequestIsSent(true)
                 }
             }
         })
@@ -141,11 +141,12 @@ const Home = () => {
 
     const sendAdminJoinRequestApprove = (adminJoinRequestId) => {
         axios.put(
-            `http://localhost:8080/admin/${adminJoinRequestId}`,
+            `/admin/${adminJoinRequestId}`,
             {},
             {},
         ).then((response) => {
-                console.log(response.status);
+                const newAdminJoinRequests = adminJoinRequests.filter(request => request.id !== adminJoinRequestId);
+                setAdminJoinRequests(newAdminJoinRequests);
             }
         ).catch(error => {
             if (error.response) {
@@ -159,11 +160,14 @@ const Home = () => {
 
     const loadUserRole = () => {
         axios.get(
-            `http://localhost:8080/user/role/${user.username}`,
+            `/user/role/${user.username}`,
             {}
         ).then((response) => {
                 user.role = response.data.role;
-                setUser(response.data);
+                setUser({
+                    ...user,
+                    role: response.data
+                });
             }
         ).catch(error => {
             if (error.response) {
@@ -175,7 +179,6 @@ const Home = () => {
         })
     }
 
-
     useEffect(() => {
         const timer = setTimeout(() => {
             loadHumanBeings(0);
@@ -184,8 +187,7 @@ const Home = () => {
             if (user.role === "ADMIN") {
                 loadAdminJoinRequests(0);
             }
-
-            const sock = new SockJS("http://localhost:8080/ws");
+            const sock = new SockJS("/ws");
             const stompClient = Stomp.over(sock);
 
             stompClient.connect({
@@ -200,13 +202,17 @@ const Home = () => {
                         if (user.role === "ADMIN") {
                             loadAdminJoinRequests(adminJoinRequestsPage);
                         }
+                        loadUserRole()
+                        setAdminJoinRequestIsSent(false)
                     },
                     {
                         "Authorization": `Bearer ${user.token}`,
                     }
                 )
             })
-        }, 500);
+
+            setSubmitAdminJoinRequestButtonIsActive(true)
+        }, 1000);
     }, []);
 
     return (
@@ -215,8 +221,10 @@ const Home = () => {
                 <h1>Welcome, {user.username}!</h1>
                 <p>Role: {user.role}</p>
                 {user.role !== "ADMIN" && (
-                    <button className="button" onClick={sendAdminJoinRequest}>Send admin join request</button>)}
+                    <button className="button" onClick={sendAdminJoinRequest}
+                            disabled={!submitAdminJoinRequestButtonIsActive}>Send admin join request</button>)}
                 <button className="button logout" onClick={logout}>Logout</button>
+                {adminJoinRequestIsSent && (<p className='error-message'>Admin join request is already sent</p>)}
                 <CreateModal open={open} setOpen={setOpen}/>
                 <UpdateModal open={open} setOpen={setOpen} humanBeings={humanBeings} cars={cars}
                              coordinates={coordinates}/>

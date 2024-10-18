@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.vendor.AbstractJpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter;
@@ -25,13 +26,11 @@ public class EclipseLinkJpaConfiguration extends JpaBaseConfiguration {
         super(dataSource, properties, jtaTransactionManager);
     }
 
-    // EclipseLink JPA Adaptor
     @Override
     protected AbstractJpaVendorAdapter createJpaVendorAdapter() {
         return new EclipseLinkJpaVendorAdapter();
     }
 
-    // EclipseLink Properties
     @Override
     protected Map<String, Object> getVendorProperties() {
         Map<String, Object> map = new HashMap<>();
@@ -40,14 +39,13 @@ public class EclipseLinkJpaConfiguration extends JpaBaseConfiguration {
         return map;
     }
 
-    // Database Connection properties setup
     @Bean
     public static DataSource dataSource() {
         final DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
-        dataSource.setUsername("postgres");
-        dataSource.setPassword("postgres");
+        dataSource.setDriverClassName(System.getenv("db_driver"));
+        dataSource.setUrl(System.getenv("db_url"));
+        dataSource.setUsername(System.getenv("db_username"));
+        dataSource.setPassword(System.getenv("db_password"));
         return dataSource;
     }
 }

@@ -226,7 +226,7 @@ const CreateModal = ({open, setOpen}) => {
                     valid = false;
                 }
 
-                if (createHumanBeing.carId.match(/^[1-9][0-9]*$/) === null) {
+                if (createHumanBeing.carId.match(/^\s*$|^[1-9][0-9]*$/) === null) {
                     newCreateHumanBeingErrors.carId = "CarId must be positive integer";
                     valid = false;
                 }
@@ -258,7 +258,7 @@ const CreateModal = ({open, setOpen}) => {
                     valid = false;
                 }
 
-                if (createCoordinates.y.match(/^-?\d+$/) === null || (createCoordinates.y.match(/^-?\d+$/) !== null && Number.parseInt(createCoordinates.x) > 123)) {
+                if (createCoordinates.y.match(/^-?\d+$/) === null || (createCoordinates.y.match(/^-?\d+$/) !== null && Number.parseInt(createCoordinates.y) > 123)) {
                     newCreateCoordinatesErrors.y = "y must be integer not more than 123";
                     valid = false;
                 }
@@ -273,7 +273,7 @@ const CreateModal = ({open, setOpen}) => {
             switch (objectType) {
                 case ObjectTypes.HUMAN_BEING:
                     axios.post(
-                        "http://localhost:8080/human-being",
+                        "/human-being",
                         {
                             ...createHumanBeing,
                             realHero: !!createHumanBeing.realHero,
@@ -302,7 +302,7 @@ const CreateModal = ({open, setOpen}) => {
                     break;
                 case ObjectTypes.CAR:
                     axios.post(
-                        "http://localhost:8080/car",
+                        "/car",
                         createCar,
                         {
                             headers: {
@@ -327,7 +327,7 @@ const CreateModal = ({open, setOpen}) => {
                     break;
                 case ObjectTypes.COORDINATES:
                     axios.post(
-                        "http://localhost:8080/coordinates",
+                        "/coordinates",
                         createCoordinates,
                         {
                             headers: {

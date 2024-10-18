@@ -57,7 +57,7 @@ const UpdateModal = ({open, setOpen, humanBeings, cars, coordinates}) => {
             case ObjectTypes.HUMAN_BEING:
                 return (
                     <form className="modal-form">
-                        <h2>HumanBeing creation:</h2>
+                        <h2>HumanBeing update:</h2>
                         <div className="form-group">
                             <label>Name:</label>
                             <input type='text' value={updateHumanBeing.name} onChange={(event) => {
@@ -172,7 +172,7 @@ const UpdateModal = ({open, setOpen, humanBeings, cars, coordinates}) => {
             case ObjectTypes.CAR:
                 return (
                     <form className="modal-form">
-                        <h2>Car creation:</h2>
+                        <h2>Car update:</h2>
                         <div className="form-group">
                             <label>Name:</label>
                             <input type='text' value={updateCar.name} onChange={(event) => {
@@ -188,7 +188,7 @@ const UpdateModal = ({open, setOpen, humanBeings, cars, coordinates}) => {
             case ObjectTypes.COORDINATES:
                 return (
                     <form className="modal-form">
-                        <h2>Coordinates creation:</h2>
+                        <h2>Coordinates update:</h2>
                         <div className="form-group">
                             <label>X:</label>
                             <input type='text' value={updateCoordinates.x} onChange={(event) => {
@@ -227,7 +227,6 @@ const UpdateModal = ({open, setOpen, humanBeings, cars, coordinates}) => {
         switch (objectType) {
             case ObjectTypes.HUMAN_BEING:
                 const targetHumanBeing = humanBeings.find(humanBeing => humanBeing.id === objectId);
-                console.log(targetHumanBeing)
                 if (targetHumanBeing) {
                     setSearchMessage("")
                     setUpdateHumanBeing({
@@ -290,7 +289,7 @@ const UpdateModal = ({open, setOpen, humanBeings, cars, coordinates}) => {
                     valid = false;
                 }
 
-                if (String(updateHumanBeing.carId).match(/^[1-9][0-9]*$/) === null) {
+                if (String(updateHumanBeing.carId).match(/^\s*$|^[1-9][0-9]*$/) === null) {
                     newCreateHumanBeingErrors.carId = "CarId must be positive integer";
                     valid = false;
                 }
@@ -322,7 +321,7 @@ const UpdateModal = ({open, setOpen, humanBeings, cars, coordinates}) => {
                     valid = false;
                 }
 
-                if (String(updateCoordinates.y).match(/^-?\d+$/) === null || (String(updateCoordinates.y).match(/^-?\d+$/) !== null && Number.parseInt(updateCoordinates.x) > 123)) {
+                if (String(updateCoordinates.y).match(/^-?\d+$/) === null || (String(updateCoordinates.y).match(/^-?\d+$/) !== null && Number.parseInt(updateCoordinates.y) > 123)) {
                     newUpdateCoordinatesErrors.y = "y must be integer not more than 123";
                     valid = false;
                 }
@@ -337,9 +336,11 @@ const UpdateModal = ({open, setOpen, humanBeings, cars, coordinates}) => {
             switch (objectType) {
                 case ObjectTypes.HUMAN_BEING:
                     axios.patch(
-                        `http://localhost:8080/human-being/${selectedId}`,
+                        `/human-being/${selectedId}`,
                         {
                             ...updateHumanBeing,
+                            carId: updateHumanBeing.carId ? updateHumanBeing.carId : null,
+                            minutesOfWaiting: updateHumanBeing.minutesOfWaiting ? updateHumanBeing.minutesOfWaiting : null,
                             realHero: !!updateHumanBeing.realHero,
                             hasToothpick: !!updateHumanBeing.hasToothpick,
                         },
@@ -362,6 +363,10 @@ const UpdateModal = ({open, setOpen, humanBeings, cars, coordinates}) => {
                                 navigate("/");
                             }
 
+                            if (error.response.status === 403) {
+                                setResultMessage(error.response.data.message)
+                            }
+
                             if (error.response.status === 404) {
                                 setResultMessage(error.response.data.message)
                             }
@@ -370,7 +375,7 @@ const UpdateModal = ({open, setOpen, humanBeings, cars, coordinates}) => {
                     break;
                 case ObjectTypes.CAR:
                     axios.patch(
-                        `http://localhost:8080/car/${selectedId}`,
+                        `/car/${selectedId}`,
                         updateCar,
                         {
                             headers: {
@@ -382,6 +387,7 @@ const UpdateModal = ({open, setOpen, humanBeings, cars, coordinates}) => {
                         }
                     ).catch(error => {
                         if (error.response) {
+                            console.log(error.response.status)
                             if (error.response.status === 400) {
                                 setResultMessage(error.response.data.message)
                             }
@@ -390,12 +396,16 @@ const UpdateModal = ({open, setOpen, humanBeings, cars, coordinates}) => {
                                 setUser(null);
                                 navigate("/");
                             }
+
+                            if (error.response.status === 403) {
+                                setResultMessage(error.response.data.message)
+                            }
                         }
                     })
                     break;
                 case ObjectTypes.COORDINATES:
                     axios.patch(
-                        `http://localhost:8080/coordinates/${selectedId}`,
+                        `/coordinates/${selectedId}`,
                         updateCoordinates,
                         {
                             headers: {
@@ -414,6 +424,10 @@ const UpdateModal = ({open, setOpen, humanBeings, cars, coordinates}) => {
                             if (error.response.status === 401) {
                                 setUser(null);
                                 navigate("/");
+                            }
+
+                            if (error.response.status === 403) {
+                                setResultMessage(error.response.data.message)
                             }
                         }
                     })

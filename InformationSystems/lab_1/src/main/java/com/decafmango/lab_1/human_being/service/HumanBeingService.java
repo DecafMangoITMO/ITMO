@@ -151,13 +151,16 @@ public class HumanBeingService {
                             String.format("Car with id %s not found", patchHumanBeingDto.getCarId())
                     ));
             humanBeing.setCar(car);
-        }
+        } else
+            humanBeing.setCar(null);
         if (patchHumanBeingDto.getMood() != null)
             humanBeing.setMood(patchHumanBeingDto.getMood());
         if (patchHumanBeingDto.getImpactSpeed() != null)
             humanBeing.setImpactSpeed(patchHumanBeingDto.getImpactSpeed());
         if (patchHumanBeingDto.getMinutesOfWaiting() != null)
             humanBeing.setMinutesOfWaiting(patchHumanBeingDto.getMinutesOfWaiting());
+        else
+            humanBeing.setMinutesOfWaiting(null);
         if (patchHumanBeingDto.getWeaponType() != null)
             humanBeing.setWeaponType(patchHumanBeingDto.getWeaponType());
 

@@ -39,7 +39,7 @@ const DeleteModal = ({open, setOpen}) => {
             switch (objectType) {
                 case ObjectTypes.HUMAN_BEING:
                     axios.delete(
-                        `http://localhost:8080/human-being/${selectedId}`,
+                        `/human-being/${selectedId}`,
                         {}
                     ).then(response => {
                             setResultMessage("HumanBeing deleted")
@@ -61,7 +61,7 @@ const DeleteModal = ({open, setOpen}) => {
                     break;
                 case ObjectTypes.CAR:
                     axios.delete(
-                        `http://localhost:8080/car/${selectedId}`,
+                        `/car/${selectedId}`,
                         {}
                     ).then(response => {
                             setResultMessage("Car deleted")
@@ -83,7 +83,7 @@ const DeleteModal = ({open, setOpen}) => {
                     break;
                 case ObjectTypes.COORDINATES:
                     axios.delete(
-                        `http://localhost:8080/coordinates/${selectedId}`,
+                        `/coordinates/${selectedId}`,
                         {}
                     ).then(response => {
                             setResultMessage("Coordinates deleted")

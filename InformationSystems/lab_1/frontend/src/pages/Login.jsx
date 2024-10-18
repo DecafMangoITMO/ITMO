@@ -54,7 +54,7 @@ const Login = () => {
 
             const authType = formData.isLogin ? "login" : "register";
             axios.post(
-                `http://localhost:8080/auth/${authType}`,
+                `/auth/${authType}`,
                 JSON.stringify({
                     username: formData.username,
                     password: formData.password,

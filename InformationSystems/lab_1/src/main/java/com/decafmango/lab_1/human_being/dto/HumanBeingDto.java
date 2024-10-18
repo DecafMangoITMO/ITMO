@@ -4,6 +4,7 @@ import com.decafmango.lab_1.car.dto.CarDto;
 import com.decafmango.lab_1.coordinates.dto.CoordinatesDto;
 import com.decafmango.lab_1.human_being.model.Mood;
 import com.decafmango.lab_1.human_being.model.WeaponType;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,6 +22,7 @@ public class HumanBeingDto {
 
     private CoordinatesDto coordinates;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime creationDate;
 
     private Boolean realHero;

@@ -2,6 +2,10 @@ spring:
   application:
     name: lab_1
 
+db-url: jdbc:postgresql://localhost:5432/postgres
+db-username: postgres
+db-password: postgres
+db-driver: org.postgresql.Driver
 
 secret-key: eyJhbGciOiJIUzI1NiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcyNzQ3NTcyOSwiaWF0IjoxNzI3NDc1NzI5f6yqO0Aiup0zzXqEtW2UgszINETRG6avEi00LOREMzI
 expiration-time: 6000000000000
