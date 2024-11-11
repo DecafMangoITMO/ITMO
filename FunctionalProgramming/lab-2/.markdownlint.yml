@@ -1,0 +1,8 @@
+MD013: false # Line length
+MD009: false # no-trailing-spaces: true
+MD007: # Unordered list indentation
+  indent: 4
+MD051: false # Link fragments should be valid
+MD010: false
+MD024: false
+MD004: false

@@ -1,0 +1,22 @@
+name: Check Elixir
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: erlef/setup-beam@v1
+        with: 
+          otp-version: '27.0.1'
+          elixir-version: '1.17.2'
+      - run: mix deps.get
+      - run: mix test
+      - run: mix credo
+    

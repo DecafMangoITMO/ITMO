@@ -1,0 +1,11 @@
+%{
+  "bunt": {:hex, :bunt, "1.0.0", "081c2c665f086849e6d57900292b3a161727ab40431219529f13c4ddcf3e7a44", [:mix], [], "hexpm", "dc5f86aa08a5f6fa6b8096f0735c4e76d54ae5c9fa2c143e5a1fc7c1cd9bb6b5"},
+  "credo": {:hex, :credo, "1.7.8", "9722ba1681e973025908d542ec3d95db5f9c549251ba5b028e251ad8c24ab8c5", [:mix], [{:bunt, "~> 0.2.1 or ~> 1.0", [hex: :bunt, repo: "hexpm", optional: false]}, {:file_system, "~> 0.2 or ~> 1.0", [hex: :file_system, repo: "hexpm", optional: false]}, {:jason, "~> 1.0", [hex: :jason, repo: "hexpm", optional: false]}], "hexpm", "cb9e87cc64f152f3ed1c6e325e7b894dea8f5ef2e41123bd864e3cd5ceb44968"},
+  "file_system": {:hex, :file_system, "1.0.1", "79e8ceaddb0416f8b8cd02a0127bdbababe7bf4a23d2a395b983c1f8b3f73edd", [:mix], [], "hexpm", "4414d1f38863ddf9120720cd976fce5bdde8e91d8283353f0e31850fa89feb9e"},
+  "jason": {:hex, :jason, "1.4.4", "b9226785a9aa77b6857ca22832cffa5d5011a667207eb2a0ad56adb5db443b8a", [:mix], [{:decimal, "~> 1.0 or ~> 2.0", [hex: :decimal, repo: "hexpm", optional: true]}], "hexpm", "c5eb0cab91f094599f94d55bc63409236a8ec69a21a67814529e8d5f6cc90b3b"},
+  "libgraph": {:hex, :libgraph, "0.16.0", "3936f3eca6ef826e08880230f806bfea13193e49bf153f93edcf0239d4fd1d07", [:mix], [], "hexpm", "41ca92240e8a4138c30a7e06466acc709b0cbb795c643e9e17174a178982d6bf"},
+  "pollution": {:hex, :pollution, "0.9.2", "3f67542631071c99f807d2a8f9da799c07cd983c902f5357b9e1569c20a26e76", [:mix], [], "hexpm", "6399fd8ffd97dcc3d9d277f60542a234d644d7bcc0d48c8fda93d6be4801bac2"},
+  "propcheck": {:hex, :propcheck, "1.4.1", "c12908dbe6f572032928548089b34ff9d40672d5d70f1562e3a9e9058d226cc9", [:mix], [{:libgraph, "~> 0.13", [hex: :libgraph, repo: "hexpm", optional: false]}, {:proper, "~> 1.4", [hex: :proper, repo: "hexpm", optional: false]}], "hexpm", "e1b088f574785c3c7e864da16f39082d5599b3aaf89086d3f9be6adb54464b19"},
+  "proper": {:hex, :proper, "1.4.0", "89a44b8c39d28bb9b4be8e4d715d534905b325470f2e0ec5e004d12484a79434", [:rebar3], [], "hexpm", "18285842185bd33efbda97d134a5cb5a0884384db36119fee0e3cfa488568cbb"},
+  "quixir": {:hex, :quixir, "0.9.3", "f01c37386b9e1d0526f01a8734a6d7884af294a0ec360f05c24c7171d74632bd", [:mix], [{:pollution, "~> 0.9.2", [hex: :pollution, repo: "hexpm", optional: false]}], "hexpm", "4f3a1fe7c82b767d935b3f7b94cf34b91ef78bb487ef256b303d77417fc7d589"},
+}
