@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: lab_1
+  datasource:
+    hikari:
+      auto-commit: false
+      
+minio:
+  url: http://localhost:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket: backend
+
+secret-key: eyJhbGciOiJIUzI1NiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcyNzQ3NTcyOSwiaWF0IjoxNzI3NDc1NzI5f6yqO0Aiup0zzXqEtW2UgszINETRG6avEi00LOREMzI
+expiration-time: 6000000000000
